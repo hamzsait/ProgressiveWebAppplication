@@ -1,14 +1,16 @@
 const router = require('express').Router()
+const mongoose = require('mongoose')
 
-router.get("/", async (res,req) => {
+const db = require('../models')
 
-    try{
-        res.json({success})
-    }
-    catch{
-        res.json({error})
-    }
-    
-})
+router.get("/workouts", async (req,res) => {
+    db.Workout.find({})
+    .then(workouts => {
+      res.json(workouts);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
 module.exports=router
