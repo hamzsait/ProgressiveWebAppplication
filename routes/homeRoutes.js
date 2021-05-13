@@ -26,4 +26,16 @@ router.get('/stats', async (req, res) => {
 
 })
 
+router.get('/exercise', async (req, res) => {
+    
+    try{
+        res.sendFile(path.join(__dirname, '../public/exercise.html'));
+    }
+
+    catch{
+        res.json({error})
+    }
+
+})
+
 module.exports=router
